@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 10000 ;
 
 app.use(requestIp.mw());
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'Views'));
 app.get('/ho', (req, res) => {
     res.render('test');
 });
