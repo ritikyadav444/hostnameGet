@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     }
 
     console.log('Geo Information:', geo);
-    res.send(`Your location: ${geo.city}, ${geo.country}`);
+    res.send(` ip:${ip} Your location: ${geo.city}, Country:${geo.country} ,Region: ${geo.region} ,Timezone: ${geo.timezone},LL ${geo.ll} Range:${geo.range}`);
 });
 
 const server = app.listen(PORT, () => {
