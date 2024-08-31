@@ -1,9 +1,21 @@
 const express = require('express');
 const geoip = require('geoip-lite');
 const app = express();
+const dns = require('dns');
 const PORT = process.env.PORT || 10000
 
 app.get('/', (req, res) => {
+
+    const clientIp = req.connection.remoteAddress;
+
+    dns.reverse(clientIp, (err, hostnames) => {
+        if (err) {
+            res.send('Hostname not found');
+        } else {
+            res.send(`Client Hostname: ${hostnames[0]}`);
+        }
+    });
+
     const ip =
         req.headers['cf-connecting-ip'] ||
         req.headers['x-real-ip'] ||
