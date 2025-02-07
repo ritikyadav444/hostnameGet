@@ -6,6 +6,8 @@ const useragent = require('useragent'); // Import useragent package
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+
+//for geo location
 app.get('/', (req, res) => {
     const ip =
         req.headers['cf-connecting-ip'] ||
